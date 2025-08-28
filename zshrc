@@ -48,13 +48,13 @@ zinit light junegunn/fzf # A command-line fuzzy finder that integrates with your
 # ------------------------------------------------------------------------------
 
 # Source all .zsh files from the repo's zsh.d directory
-ZSH_SETUP_DIR=$(dirname "$0:A")
+ZSH_SETUP_DIR="$HOME/.zshconfig"
 for file in "$ZSH_SETUP_DIR"/zsh.d/*.zsh; do
   source "$file"
 done
 
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.zshconfig/p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 

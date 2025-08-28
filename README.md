@@ -2,6 +2,8 @@
 
 This repository contains a personalized, modular Zsh configuration that can be easily deployed to any new terminal environment. It uses the [Zinit](https://github.com/zdharma-continuum/zinit) plugin manager for speed and flexibility.
 
+This setup now also manages your Powerlevel10k (`.p10k.zsh`) and Tmux (`.tmux.conf`) configurations.
+
 ## 🚀 Features
 
 - **Modular:** Configuration is split into logical files within the `zsh.d/` directory.
@@ -15,15 +17,15 @@ This repository contains a personalized, modular Zsh configuration that can be e
 
 ## 🛠️ Installation
 
+**Important:** For seamless updates with `git pull`, it is highly recommended to clone this repository to the `~/.zshconfig` directory.
+
 To set up your Zsh environment using this configuration, follow these steps:
 
 1.  **Clone the repository:**
 
-    You will need to replace `<repository-url>` with the actual URL of your repository once you've pushed it to a service like GitHub.
-
     ```bash
-    git clone <repository-url> ~/code/github/zsh-setup
-    cd ~/code/github/zsh-setup
+    git clone <repository-url> ~/.zshconfig
+    cd ~/.zshconfig
     ```
 
 2.  **Run the setup script:**

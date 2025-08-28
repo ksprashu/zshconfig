@@ -3,28 +3,35 @@ set -e # Exit on error
 
 # Define paths
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ZSHRC_PATH="$REPO_DIR/zshrc"
-ZSHRC_SYMLINK="$HOME/.zshrc"
+CONFIG_FILES=( "zshrc" "p10k.zsh" "tmux.conf" )
 ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
 
-echo "🚀 Starting Zsh Setup..."
+echo "🚀 Starting Dotfiles Setup..."
 echo "Repository directory: $REPO_DIR"
 
-# 1. Create symlink for .zshrc
+# 1. Create symlinks for configuration files
 echo ""
 echo "----------------------------------------"
-echo "Step 1: Creating symlink for .zshrc"
+echo "Step 1: Creating symlinks"
 echo "----------------------------------------"
-if [ -L "$ZSHRC_SYMLINK" ] && [ "$(readlink "$ZSHRC_SYMLINK")" = "$ZSHRC_PATH" ]; then
-    echo "✅ Symlink already exists and is correct."
-else
-    if [ -e "$ZSHRC_SYMLINK" ]; then
-        echo "⚠️  Found existing .zshrc. Backing it up to .zshrc.bak..."
-        mv "$ZSHRC_SYMLINK" "$ZSHRC_SYMLINK.bak"
+for config_file in "${CONFIG_FILES[@]}"; do
+    SOURCE_PATH="$REPO_DIR/${config_file/p10k.zsh/.p10k.zsh}"
+    SOURCE_PATH="$REPO_DIR/${config_file/tmux.conf/.tmux.conf}"
+    SYMLINK_PATH="$HOME/.$config_file"
+
+    echo "Processing $SYMLINK_PATH..."
+
+    if [ -L "$SYMLINK_PATH" ] && [ "$(readlink "$SYMLINK_PATH")" = "$SOURCE_PATH" ]; then
+        echo "✅ Symlink already exists and is correct."
+    else
+        if [ -e "$SYMLINK_PATH" ]; then
+            echo "⚠️  Found existing .$config_file. Backing it up to .$config_file.bak..."
+            mv "$SYMLINK_PATH" "$SYMLINK_PATH.bak"
+        fi
+        ln -s "$SOURCE_PATH" "$SYMLINK_PATH"
+        echo "✅ Symlink created at $SYMLINK_PATH"
     fi
-    ln -s "$ZSHRC_PATH" "$ZSHRC_SYMLINK"
-    echo "✅ Symlink created at $ZSHRC_SYMLINK"
-fi
+done
 
 # 2. Install Zinit if not present
 echo ""
