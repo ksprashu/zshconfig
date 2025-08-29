@@ -13,13 +13,19 @@ export LDFLAGS="-L/usr/local/opt/curl/lib"
 export CPPFLAGS="-I/usr/local/opt/curl/include"
 
 # From .zlocal
-export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -s 'HOMEBREW_GITHUB_API_TOKEN' -a 'ksprashanth' -w)
+if [[ "$(uname)" == "Darwin" ]]; then
+  # macOS
+  export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -s 'HOMEBREW_GITHUB_API_TOKEN' -a 'ksprashanth' -w)
+  export GITHUB_PERSONAL_ACCESS_TOKEN=$(security find-generic-password -s 'GITHUB_PERSONAL_ACCESS_TOKEN' -a 'ksprashanth' -w)
+elif [[ "$(uname)" == "Linux" ]]; then
+  # Linux
+  export GITHUB_PERSONAL_ACCESS_TOKEN=$(pass show GITHUB_PAT)
+fi
 # export GOOGLE_API_KEY=$(security find-generic-password -s 'GEMINI_API_KEY' -a 'ksprashanth' -w)
-export GEMINI_API_KEY=$(security find-generic-password -s 'GEMINI_API_KEY' -a 'ksprashanth' -w)
-export GITHUB_PERSONAL_ACCESS_TOKEN=$(security find-generic-password -s 'GITHUB_PERSONAL_ACCESS_TOKEN' -a 'ksprashanth' -w)
-# export GOOGLE_GENAI_USE_VERTEXAI=true 
-# export GOOGLE_CLOUD_PROJECT=ksp-sandbox
-# export GOOGLE_CLOUD_LOCATION=us-central1
+# export GEMINI_API_KEY=$(security find-generic-password -s 'GEMINI_API_KEY' -a 'ksprashanth' -w)
+export GOOGLE_GENAI_USE_VERTEXAI=true 
+export GOOGLE_CLOUD_PROJECT=ksp-sandbox
+export GOOGLE_CLOUD_LOCATION=us-central1
 # export VERTEXAI_PROJECT="ksp-sandbox"
 # export VERTEXAI_LOCATION="us-east5"
 
