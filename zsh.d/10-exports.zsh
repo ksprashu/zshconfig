@@ -32,3 +32,4 @@ export GEM_HOME="$HOME/gems"
 
 # pnpm
 export PNPM_HOME="/Users/ksprashanth/Library/pnpm"
+
