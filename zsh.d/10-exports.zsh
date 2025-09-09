@@ -17,6 +17,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # macOS
   export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -s 'HOMEBREW_GITHUB_API_TOKEN' -a 'ksprashanth' -w)
   export GITHUB_PERSONAL_ACCESS_TOKEN=$(security find-generic-password -s 'GITHUB_PERSONAL_ACCESS_TOKEN' -a 'ksprashanth' -w)
+  export FIRECRAWL_API_KEY=$(security find-generic-password -s 'FIRECRAWL_API_KEY' -a 'ksprashanth' -w)
+  export CONTEXT7_API_KEY=$(security find-generic-password -s 'CONTEXT7_API_KEY' -a 'ksprashanth' -w)
 # export GEMINI_API_KEY=$(security find-generic-password -s 'GEMINI_API_KEY' -a 'ksprashanth' -w)
 elif [[ "$(uname)" == "Linux" ]]; then
   # Linux
