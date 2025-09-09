@@ -39,13 +39,26 @@ zi light zsh-users/zsh-history-substring-search
 
 # Other popular plugins
 zinit light ajeetdsouza/zoxide # A smarter cd command that keeps track of your most-used directories
-zinit light junegunn/fzf # A command-line fuzzy finder that integrates with your shell to provide fuzzy searching for files, command history, and more
+
+zinit light junegunn/fzf
 
 
 
 # ------------------------------------------------------------------------------
 # Your Custom Configuration
 # ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# History Configuration
+# ------------------------------------------------------------------------------
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+
 
 # Source all .zsh files from the repo's zsh.d directory
 ZSH_SETUP_DIR="$HOME/.zshconfig"
@@ -56,5 +69,4 @@ done
 
 # To customize prompt, run `p10k configure` or edit ~/.zshconfig/p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 

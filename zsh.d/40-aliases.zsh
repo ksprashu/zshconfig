@@ -18,4 +18,9 @@ alias vsc-restart='systemctl --user restart code-server'
 # alias devsite_codelabs='/google/bin/releases/devrel-codelabs/devsite_codelabs'
 # complete -W "create_cl flags help update_cl" devsite_codelabs
 # export TENANT="codelabs"
-# alias source-devsite='source /google/src/head/depot/google3/devsite/two/tools/aliases.sh'
+# alias source-devsite='source /google/src/head/depot/google5/devsite/two/tools/aliases.sh'
+
+# Task Master aliases added on 9/4/2025
+alias tm='task-master'
+alias taskmaster='task-master'
+
