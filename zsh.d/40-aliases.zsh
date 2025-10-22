@@ -11,6 +11,8 @@ alias newmocha='echo > package.json "{\"dependencies\": {},\"devDependencies\": 
 alias pastebin="/google/src/head/depot/eng/tools/pastebin"
 alias vsc-restart='systemctl --user restart code-server'
 
+alias gempy='GEMINI_API_KEY=AIzaSyBng0b0DWmUfoYNzouu9VFGK2_R-_nHano python3'
+
 # Aliases from .zshrc
 # alias v="nvim"
 # alias vi="vim"
@@ -24,3 +26,6 @@ alias vsc-restart='systemctl --user restart code-server'
 alias tm='task-master'
 alias taskmaster='task-master'
 
+
+# Alias for ls to enable colors
+alias ls="ls -G"

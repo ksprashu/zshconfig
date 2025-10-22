@@ -70,3 +70,6 @@ done
 # To customize prompt, run `p10k configure` or edit ~/.zshconfig/p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# Added by Jetski
+export PATH="/Users/ksprashanth/.jetski/jetski/bin:$PATH"
